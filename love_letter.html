@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Letter Generator 💌</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      font-family: "Courier New", monospace;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #cc3366;
+    }
+
+    #letter {
+      white-space: pre-wrap;
+      background: white;
+      padding: 18px;
+      border-radius: 8px;
+      margin-top: 20px;
+      min-height: 100px;
+    }
+
+    button {
+      background: #ff99cc;
+      color: white;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background: #ff66aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>love letters for carsy <3</h1>
+  <button onclick="generateLetter()">Generate a Love Letter</button>
+  <div id="letter"></div>
+
+  <script>
+    const memories = [
+      'the time we rode bikes on the island',
+      'the time we kissed in the water on the island',
+      'the time we had a man on cocaine drive us',
+      'the time we had our first kiss in the rain',
+      'the time we drank wine in the men\'s bathroom',
+      'the time we watched the sea in the ferry to the island',
+      'the time i played guitar and sang to you',
+      'the time you flew to istanbul for me',
+      'the time we spent on the counter of my house..',
+      'the time we cuddled and slept in your room when i had my period',
+      'the time we played a tag game in my house',
+      'the time you tickled me until i screamed for you to stop',
+      'the time we got drunk and had a camel fight in the pool at that one party',
+      'the time you did something in that bar in kadikoy before the pool party',
+      'the times we spent in the judgement free zone',
+      'the time i hand fed you even though you said you would never do it and you liked it'
+    ];
+
+    const promises = [
+      'i will always root for your dreams',
+      'i will hold you close when everything feels too loud',
+      'i will never stop writing love letters for you',
+      'i will always be silly and goofy and make you laugh',
+      'i will always love you despite our "heated discussions"',
+      'i will always be clingy',
+      'i will always be your little cherry princess',
+      'i will always make you uncomfortable with my fantasies and horror stories',
+      'i will always try to win you over and not take you for granted',
+      'i will always try my best to respect you and treat you with kindness'
+    ];
+
+    const templates = [
+      `my love,
+i keep thinking about {memory}.
+i don’t think I’ll ever stop smiling when I remember it.
+just wanted to remind you: {promise}.
+yours,
+your menace girlfriend`,
+
+      `my love,
+i keep thinking about {memory}.
+i feel so lucky to have a million more memories like that with you.
+and i pinky promise this: {promise}.
+forever on your team,
+your little cherry`,
+
+      `hi hot stuff,
+i keep thinking about {memory}.
+it still gives me butterflies.
+just so you know: {promise}.
+yours with sticky lip gloss and a dirty mind,
+your hot hot SO HOT girly`
+    ];
+
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateLetter() {
+      const memory = getRandom(memories);
+      const promise = getRandom(promises);
+      const template = getRandom(templates)
+        .replace('{memory}', memory)
+        .replace('{promise}', promise);
+
+      document.getElementById('letter').textContent = template;
+    }
+  </script>
+</body>
+</html>
